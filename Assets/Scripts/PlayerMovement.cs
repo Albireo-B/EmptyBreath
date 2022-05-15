@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -25,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     public float jumpHeight = 3f;
+
+    [SerializeField]
+    private GameObject hitboxClimb;
 
     void Start()
     {
