@@ -69,8 +69,17 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        }
-        Debug.Log(isGrounded);
+        }   
+
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        Debug.Log(collision.collider.gameObject.name);
+        Debug.Log("in");
+    }
+    private void OnTriggerEnter(Collider collision) {
+        Debug.Log(collision.GetComponent<Collider>().gameObject.name);
+        Debug.Log("in");
     }
 
 }
