@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    const float WALKING_SPEED = 12f;
+
     [SerializeField]
     private CharacterController controller;
 
@@ -14,11 +16,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float groundDistance = 0.4f;
     public LayerMask groundMask;
-    private bool isGrounded;
+    private bool isGrounded = true;
+    private bool isRunning = false;
 
 
     [SerializeField]
-    private float speed = 12f;
+    private float currentSpeed = 0f;
+
+    [SerializeField] 
+    private float runningSpeedMultiplier;
+
     // Start is called before the first frame update
     public float gravity = -9.81f;
 
@@ -33,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -49,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
     
+
+
         Vector3 move;
         //Empeche de bouger sur x en saut
         if(!isGrounded) move = transform.right * (x *0.1f) + transform.forward * z;
@@ -56,21 +64,31 @@ public class PlayerMovement : MonoBehaviour
         //mouvement normal au sol
         else move = transform.right * x + transform.forward * z; 
 
+        //Set the current speed depending on character running or not        
+        if (Input.GetKeyDown(KeyCode.LeftShift)){
+            isRunning = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftShift)){
+            isRunning = false;
+        }
+
+        currentSpeed = isRunning ? WALKING_SPEED * runningSpeedMultiplier : WALKING_SPEED;
         
+
+
         //gravity
         velocity.y += gravity * Time.deltaTime; 
         controller.Move(velocity * Time.deltaTime);
 
         //deplacement
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * currentSpeed * Time.deltaTime);
 
         //Jump
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
     }
 
 }
