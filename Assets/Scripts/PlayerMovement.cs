@@ -91,4 +91,8 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(isGrounded);
     }
 
+    public bool GetPlayerRunning() {return isRunning;}
+
+    public CharacterController GetCharacterController() {return controller;}
+
 }
