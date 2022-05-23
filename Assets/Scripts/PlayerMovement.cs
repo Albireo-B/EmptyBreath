@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    
     const float WALKING_SPEED = 12f;
 
     [SerializeField]
@@ -89,6 +91,15 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         //Debug.Log(isGrounded);
+    }
+    public void OnCollisionEnter(Collision collision)
+    {     
+        IInteractableObject io = collision.gameObject.GetComponent<IInteractableObject>();
+        if (io == null)
+            return;
+        io.OnPlayerInteraction();
+
+
     }
 
     public bool GetPlayerRunning() {return isRunning;}
