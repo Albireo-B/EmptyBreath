@@ -97,9 +97,8 @@ public class PlayerMovement : MonoBehaviour
         else { //Todo debugging
             if(Input.GetMouseButtonDown(1))
             {
-            Vector3 pos = new Vector3(obstacle.transform.position.x + (obstacle.transform.position.x - transform.position.x), obstacle.transform.position.y + 3 , obstacle.transform.position.z + (obstacle.transform.position.z- transform.position.z));
-            Debug.Log(pos);
-            this.transform.position = pos;
+            Vector3 pos = new Vector3(obstacle.transform.position.x - transform.position.x, obstacle.transform.position.y  ,obstacle.transform.position.z- transform.position.z);
+            controller.Move(pos);
             this.isClimbing = false;
             this.isGravity = true;
             velocity.y = -2f;
