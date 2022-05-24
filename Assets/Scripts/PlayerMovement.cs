@@ -18,9 +18,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float groundDistance = 0.4f;
     public LayerMask groundMask;
-    private bool isGrounded = true;
     private bool isRunning = false;
+    
+    [SerializeField]
+    private bool isGravity = true;
+    private bool isGrounded;
 
+    //Climb
+    [SerializeField]
+    private bool canClimbing = false;
+    [SerializeField]
+    private bool isClimbing = false;
+    [SerializeField]
+    private float cdnClimb = 0.0f;
+    private Transform obstacle;
 
     [SerializeField]
     private float currentSpeed = 0f;
@@ -57,8 +68,6 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
     
-
-
         Vector3 move;
         //Empeche de bouger sur x en saut
         if(!isGrounded) move = transform.right * (x *0.1f) + transform.forward * z;
@@ -78,19 +87,52 @@ public class PlayerMovement : MonoBehaviour
 
 
         //gravity
-        velocity.y += gravity * Time.deltaTime; 
+        if(isGravity)
+            velocity.y += gravity * Time.deltaTime; 
         controller.Move(velocity * Time.deltaTime);
 
         //deplacement
+        if(!isClimbing)
+            controller.Move(move * currentSpeed * Time.deltaTime);
+        else { //Todo debugging
+            if(Input.GetMouseButtonDown(1))
+            {
+            Vector3 pos = new Vector3(obstacle.transform.position.x + (obstacle.transform.position.x - transform.position.x), obstacle.transform.position.y + 3 , obstacle.transform.position.z + (obstacle.transform.position.z- transform.position.z));
+            Debug.Log(pos);
+            this.transform.position = pos;
+            this.isClimbing = false;
+            this.isGravity = true;
+            velocity.y = -2f;
+            }
 
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
+        }
         //Jump
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }   
+
+        //Climb 
+        if(Input.GetMouseButtonDown(0) && canClimbing)
+        {
+            isGravity = false;
+            velocity.y = 0f;
+            isClimbing =true;
+            Debug.Log(obstacle.transform.position);
+            
         }
-        //Debug.Log(isGrounded);
+
+        if(cdnClimb > 0f)
+        {
+            cdnClimb -= Time.deltaTime;
+        }
+        if(cdnClimb <0f)
+        {
+            canClimbing = false;
+
+        }
+
+        
     }
     public void OnCollisionEnter(Collision collision)
     {     
@@ -105,5 +147,21 @@ public class PlayerMovement : MonoBehaviour
     public bool GetPlayerRunning() {return isRunning;}
 
     public CharacterController GetCharacterController() {return controller;}
+
+    // void OnCollisionEnter(Collision collision) {
+    //     Debug.Log(collision.collider.gameObject.name);
+    //     Debug.Log("in");
+    // }
+    private void OnTriggerStay(Collider collision) {
+        obstacle = collision.GetComponent<Collider>().gameObject.transform;
+        CanClimb(true);
+
+    }
+
+    private void CanClimb(bool can)
+    {
+        this.canClimbing = true;
+        cdnClimb = 0.5f;
+    }
 
 }
