@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private float runningSpeedMultiplier;
 
     // Start is called before the first frame update
-    public float gravity = -9.81f;
+    public float gravity = -19.81f;
 
     [SerializeField]
     Vector3 velocity;
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         else move = transform.right * x + transform.forward * z; 
 
         //Set the current speed depending on character running or not        
-        if (Input.GetKeyDown(KeyCode.LeftShift)){
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded){
             isRunning = true;
         } else if (Input.GetKeyUp(KeyCode.LeftShift)){
             isRunning = false;
