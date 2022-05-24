@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private float runningSpeedMultiplier;
 
     // Start is called before the first frame update
-    public float gravity = -9.81f;
+    public float gravity = -19.81f;
 
     [SerializeField]
     Vector3 velocity;
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         else move = transform.right * x + transform.forward * z; 
 
         //Set the current speed depending on character running or not        
-        if (Input.GetKeyDown(KeyCode.LeftShift)){
+        if (Input.GetKeyDown(KeyCode.LeftShift) && isGrounded){
             isRunning = true;
         } else if (Input.GetKeyUp(KeyCode.LeftShift)){
             isRunning = false;
@@ -97,9 +97,8 @@ public class PlayerMovement : MonoBehaviour
         else { //Todo debugging
             if(Input.GetMouseButtonDown(1))
             {
-            Vector3 pos = new Vector3(obstacle.transform.position.x + (obstacle.transform.position.x - transform.position.x), obstacle.transform.position.y + 3 , obstacle.transform.position.z + (obstacle.transform.position.z- transform.position.z));
-            Debug.Log(pos);
-            this.transform.position = pos;
+            Vector3 pos = new Vector3(obstacle.transform.position.x - transform.position.x, obstacle.transform.position.y  ,obstacle.transform.position.z- transform.position.z);
+            controller.Move(pos);
             this.isClimbing = false;
             this.isGravity = true;
             velocity.y = -2f;
