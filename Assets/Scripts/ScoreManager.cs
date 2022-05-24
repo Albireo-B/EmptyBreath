@@ -9,16 +9,16 @@ public class ScoreManager : MonoBehaviour
 
     int score = 0;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        scoreText.text = "Score : " + score;
+        scoreText.text = "Nourriture : " + score;
     }
 
     public void MorePoint()
     {
       
         score++;
-        scoreText.text = "Score : " + score;
+        scoreText.text = "Nourriture : " + score;
     }
 
  

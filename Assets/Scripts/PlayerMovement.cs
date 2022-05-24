@@ -133,15 +133,15 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
-    public void OnCollisionEnter(Collision collision)
-    {     
-        IInteractableObject io = collision.gameObject.GetComponent<IInteractableObject>();
+    public void OnTriggerEnter(Collider other)
+    {
+        IInteractableObject io = other.gameObject.GetComponent<IInteractableObject>();
         if (io == null)
             return;
         io.OnPlayerInteraction();
 
-
     }
+ 
 
     public bool GetPlayerRunning() {return isRunning;}
 
