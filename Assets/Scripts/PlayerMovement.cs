@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
 
+    
+    const float WALKING_SPEED = 12f;
+
     [SerializeField]
     private CharacterController controller;
 
@@ -15,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float groundDistance = 0.4f;
     public LayerMask groundMask;
+    private bool isRunning = false;
     
     [SerializeField]
     private bool isGravity = true;
@@ -30,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
     private Transform obstacle;
 
     [SerializeField]
-    private float speed = 12f;
+    private float currentSpeed = 0f;
+
+    [SerializeField] 
+    private float runningSpeedMultiplier;
+
     // Start is called before the first frame update
     public float gravity = -9.81f;
 
@@ -45,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -61,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
     
-        
         Vector3 move;
         //Empeche de bouger sur x en saut
         if(!isGrounded) move = transform.right * (x *0.1f) + transform.forward * z;
@@ -69,7 +75,17 @@ public class PlayerMovement : MonoBehaviour
         //mouvement normal au sol
         else move = transform.right * x + transform.forward * z; 
 
+        //Set the current speed depending on character running or not        
+        if (Input.GetKeyDown(KeyCode.LeftShift)){
+            isRunning = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftShift)){
+            isRunning = false;
+        }
+
+        currentSpeed = isRunning ? WALKING_SPEED * runningSpeedMultiplier : WALKING_SPEED;
         
+
+
         //gravity
         if(isGravity)
             velocity.y += gravity * Time.deltaTime; 
@@ -118,6 +134,19 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
+    public void OnCollisionEnter(Collision collision)
+    {     
+        IInteractableObject io = collision.gameObject.GetComponent<IInteractableObject>();
+        if (io == null)
+            return;
+        io.OnPlayerInteraction();
+
+
+    }
+
+    public bool GetPlayerRunning() {return isRunning;}
+
+    public CharacterController GetCharacterController() {return controller;}
 
     // void OnCollisionEnter(Collision collision) {
     //     Debug.Log(collision.collider.gameObject.name);
