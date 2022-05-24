@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
         //deplacement
         if(!isClimbing)
-            controller.Move(move * speed * Time.deltaTime);
+            controller.Move(move * currentSpeed * Time.deltaTime);
         else { //Todo debugging
             if(Input.GetMouseButtonDown(1))
             {

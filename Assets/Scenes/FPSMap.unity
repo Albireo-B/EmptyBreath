@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 61308210}
   - component: {fileID: 61308209}
   - component: {fileID: 61308208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 102199956}
   - component: {fileID: 102199955}
   - component: {fileID: 102199954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,6 +638,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &653722846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+  m_PrefabInstance: {fileID: 1510322789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &685437064
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +655,7 @@ GameObject:
   - component: {fileID: 685437068}
   - component: {fileID: 685437067}
   - component: {fileID: 685437066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +751,7 @@ GameObject:
   - component: {fileID: 688139964}
   - component: {fileID: 688139963}
   - component: {fileID: 688139962}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -842,7 +847,7 @@ GameObject:
   - component: {fileID: 741773734}
   - component: {fileID: 741773733}
   - component: {fileID: 741773732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1039,7 @@ GameObject:
   - component: {fileID: 999008178}
   - component: {fileID: 999008177}
   - component: {fileID: 999008176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1130,7 +1135,7 @@ GameObject:
   - component: {fileID: 1038885789}
   - component: {fileID: 1038885788}
   - component: {fileID: 1038885787}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1226,7 +1231,7 @@ GameObject:
   - component: {fileID: 1236646322}
   - component: {fileID: 1236646321}
   - component: {fileID: 1236646320}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1327,7 @@ GameObject:
   - component: {fileID: 1261173523}
   - component: {fileID: 1261173522}
   - component: {fileID: 1261173521}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1516,7 @@ GameObject:
   - component: {fileID: 1331087459}
   - component: {fileID: 1331087458}
   - component: {fileID: 1331087457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1704,6 +1709,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1510322789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2078686162}
+    m_Modifications:
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.069334
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.935692
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18.44712
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64627843138281108, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_Name
+      value: Plateform1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
 --- !u!1 &1530350929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,7 +1778,7 @@ GameObject:
   - component: {fileID: 1530350933}
   - component: {fileID: 1530350932}
   - component: {fileID: 1530350931}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1905,7 +1967,7 @@ GameObject:
   - component: {fileID: 1658280905}
   - component: {fileID: 1658280904}
   - component: {fileID: 1658280903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2033,7 +2095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2078686162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Decor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2064,6 +2126,7 @@ Transform:
   - {fileID: 685437065}
   - {fileID: 688139961}
   - {fileID: 1658280902}
+  - {fileID: 653722846}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2145,7 +2208,7 @@ GameObject:
   - component: {fileID: 2139843379}
   - component: {fileID: 2139843378}
   - component: {fileID: 2139843377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Slope (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
