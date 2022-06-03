@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isRunning = false;
     
     [SerializeField]
-    private bool isGravity = true;
+    public bool isGravity = true;
     private bool isGrounded;
+
+    public bool IsWallRunning = false;
 
     //Climb
     [SerializeField]
@@ -92,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         //deplacement
-        if(!isClimbing)
+        if(IsWallRunning){
+
+        }
+        else if(!isClimbing)
             controller.Move(move * currentSpeed * Time.deltaTime);
         else { //Todo debugging
             if(Input.GetMouseButtonDown(1))
@@ -161,6 +166,11 @@ public class PlayerMovement : MonoBehaviour
     {
         this.canClimbing = true;
         cdnClimb = 0.5f;
+    }
+
+    public bool IsGround()
+    {
+        return isGrounded;
     }
 
 }
