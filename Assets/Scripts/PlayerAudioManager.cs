@@ -45,12 +45,10 @@ public class PlayerAudioManager : MonoBehaviour
     void PlayAliensIncoming(){
         audioPlaying = true;
         //We play randomly the left or right speaker to panic the player and improve immersion
-        Vector3 newAudioSourcePosition;
         if(Random.value<0.5f)
-            newAudioSourcePosition = new Vector3(1.5f, audioSource.transform.localPosition.y,audioSource.transform.localPosition.z);
+            audioSource.panStereo = -0.75f;
         else
-            newAudioSourcePosition = new Vector3(-1.5f, audioSource.transform.localPosition.y,audioSource.transform.localPosition.z);
-        audioSource.transform.localPosition = newAudioSourcePosition;
+            audioSource.panStereo = 0.75f;
         audioSource.volume = 0.1f;
         audioSource.Play();
         volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Increase));

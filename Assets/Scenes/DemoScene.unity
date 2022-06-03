@@ -2818,6 +2818,10 @@ PrefabInstance:
       propertyPath: playerImmobile
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6402484239048098148, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
+      propertyPath: Pan2D
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7628822972449584194, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
       propertyPath: gravity
       value: -9.81
