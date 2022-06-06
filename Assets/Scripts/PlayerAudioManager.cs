@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 public class PlayerAudioManager : MonoBehaviour
 {
 
-
-    //test var
-    public bool playerImmobile;
 
     enum VolumeMode{Increase,Decrease};
 
@@ -18,6 +17,7 @@ public class PlayerAudioManager : MonoBehaviour
 
     private Coroutine volumeCoroutine;
     private AudioSource audioSource;
+    private bool playerImmobile;
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +80,11 @@ public class PlayerAudioManager : MonoBehaviour
     }
 
     void PlayerDeath(){
-        audioSource.enabled = false;
-        Debug.Log("You lost the game the THINGS got you...");
+        Debug.Log("The THINGS got you...");
+        SceneManager.LoadScene("DemoScene");
+    }
+
+    public void SetImmobile(bool immobile){
+        playerImmobile = immobile;
     }
 }

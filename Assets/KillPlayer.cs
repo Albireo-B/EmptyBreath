@@ -5,33 +5,42 @@ using UnityEngine.SceneManagement;
 public class KillPlayer : MonoBehaviour
 {
     [SerializeField]
-    private Transform player;
+    private GameObject player;
     private Vector3 positionLastSecond;
     private Vector3 position;
+
     [SerializeField]
-    private float timeBeforeDeath = 1f;
+    private float timeBeforePursuitSounds = 1f;
+
+    private float timeLeftBeforePursuit;
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        positionLastSecond = player.position;
+        positionLastSecond = player.transform.position;
+        timeLeftBeforePursuit = timeBeforePursuitSounds;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timeBeforeDeath > 0.0f){
-            timeBeforeDeath -= Time.deltaTime;
-
+        //TODO : NE calcule que si le joueur est immobile
+        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.008f)
+        {
+            if (timeLeftBeforePursuit > 0.0f){
+                timeLeftBeforePursuit -= Time.deltaTime;
+            } else {
+                player.GetComponent<PlayerAudioManager>().SetImmobile(true);
+                timeLeftBeforePursuit = timeBeforePursuitSounds;
+            }
+        } else {
+            //reset pursuit time
+            timeLeftBeforePursuit = timeBeforePursuitSounds;
+            player.GetComponent<PlayerAudioManager>().SetImmobile(false);
         }
-        else{
-            timeBeforeDeath = 1f;
-            if (Vector3.Distance(player.position, positionLastSecond) < 0.008f)
-            {
-               
-                Debug.Log("Death");
-                SceneManager.LoadScene("FPSMap");
-            }
-            }
-        positionLastSecond = player.position;
+        
+        positionLastSecond = player.transform.position;
     }
 }
