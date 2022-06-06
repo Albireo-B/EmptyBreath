@@ -29,7 +29,12 @@ public class PlayerAudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerImmobile && !audioPlaying){
+        /*if (playerImmobile && audioPlaying){
+            audioPlaying = true;
+            StopCoroutine(volumeCoroutine);
+            volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Increase));
+        }*/
+         if (playerImmobile && !audioPlaying){
             if (volumeCoroutine!=null)
                 StopCoroutine(volumeCoroutine);
             PlayAliensIncoming();
@@ -37,7 +42,7 @@ public class PlayerAudioManager : MonoBehaviour
             audioPlaying = false;
             StopCoroutine(volumeCoroutine);
             volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Decrease));
-        }
+        } 
         //Tant que joueur immobile : play et monter son?
         // sinon  : play et baisser son -> quand volume 0 ou 100 stop.
     }

@@ -26,8 +26,7 @@ public class KillPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO : NE calcule que si le joueur est immobile
-        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.008f)
+        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.15f) 
         {
             if (timeLeftBeforePursuit > 0.0f){
                 timeLeftBeforePursuit -= Time.deltaTime;
@@ -35,6 +34,7 @@ public class KillPlayer : MonoBehaviour
                 player.GetComponent<PlayerAudioManager>().SetImmobile(true);
                 timeLeftBeforePursuit = timeBeforePursuitSounds;
             }
+            
         } else {
             //reset pursuit time
             timeLeftBeforePursuit = timeBeforePursuitSounds;
@@ -42,5 +42,6 @@ public class KillPlayer : MonoBehaviour
         }
         
         positionLastSecond = player.transform.position;
+        
     }
 }
