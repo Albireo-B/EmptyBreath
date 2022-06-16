@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementRB : MonoBehaviour
 {
 
     
     const float WALKING_SPEED = 12f;
 
     [SerializeField]
-    private CharacterController controller;
+    private Rigidbody rb;
 
     [SerializeField]
     private Transform groundCheck;
@@ -53,11 +53,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject hitboxClimb;
 
-    public enum LastWallRun{ leftW, rightW, none}
-    public LastWallRun lastWallSide, currentWallSide;
-
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     // Update is called once per frame
@@ -65,13 +64,10 @@ public class PlayerMovement : MonoBehaviour
     {
         //Check on ground & reset gravity velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velocity.y <0f) 
-        {
-            lastWallSide = LastWallRun.none;
-            // currentWallSide = LastWallRun.none;
-            ResetVelocity();
-            velocity.y = -2f;
-        }
+        // if (isGrounded && velocity.y <0f) 
+        // {
+        //     velocity.y = -2f;
+        // }
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -95,28 +91,25 @@ public class PlayerMovement : MonoBehaviour
 
 
         //gravity
-        if(isGravity)
-            velocity.y += gravity * Time.deltaTime; 
-        controller.Move(velocity * Time.deltaTime);
+        // if(isGravity)
+        //     velocity.y += gravity * Time.deltaTime; 
+        // controller.Move(velocity * Time.deltaTime);
 
         //deplacement
         if(IsWallRunning){
 
         }
-        else if(isClimbing)
-        {
+        else if(!isClimbing)
+            rb.AddForce(move * currentSpeed * 1f, ForceMode.Force);
+        else { //Todo debugging
             if(Input.GetMouseButtonDown(1))
             {
-                Vector3 pos = new Vector3(obstacle.transform.position.x - transform.position.x, obstacle.transform.position.y  ,obstacle.transform.position.z- transform.position.z);
-                controller.Move(pos);
-                this.isClimbing = false;
-                this.isGravity = true;
-                velocity.y = -2f;
+            Vector3 pos = new Vector3(obstacle.transform.position.x - transform.position.x, obstacle.transform.position.y  ,obstacle.transform.position.z- transform.position.z);
+            // controller.Move(pos);
+            // this.isClimbing = false;
+            // this.isGravity = true;
+            // velocity.y = -2f;
             }
-        }
-            
-        else { //Todo debugging
-            controller.Move(move * currentSpeed * Time.deltaTime);
 
         }
         //Jump
@@ -129,8 +122,8 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && canClimbing)
         {
             isGravity = false;
+            velocity.y = 0f;
             isClimbing =true;
-            ResetYVelocity();
             Debug.Log(obstacle.transform.position);
             
         }
@@ -159,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool GetPlayerRunning() {return isRunning;}
 
-    public CharacterController GetCharacterController() {return controller;}
+    // public CharacterController GetCharacterController() {return controller;}
 
     // void OnCollisionEnter(Collision collision) {
     //     Debug.Log(collision.collider.gameObject.name);
@@ -182,28 +175,4 @@ public class PlayerMovement : MonoBehaviour
         return isGrounded;
     }
 
-
-    public void ResetYVelocity()
-    {
-        velocity.y = 0f;
-    }
-        public void SetYVelocity(float yVelocity)
-    {
-        velocity.y = yVelocity;
-    }       
-     public void SetXVelocity(float xVelocity)
-    {
-        velocity.x = xVelocity;
-    }        
-    public void SetZVelocity(float zVelocity)
-    {
-        velocity.z = zVelocity;
-    }
-    public void SetVelocity(Vector3 velocit){
-        velocity = velocit;
-    }
-    public void ResetVelocity()
-    {
-        velocity = Vector3.zero;
-    }
 }

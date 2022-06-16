@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1389,11 +1389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.99
+      value: 12.989844
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 14
+      value: 26.627998
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1401,11 +1401,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.3
+      value: 11.26
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 12.92
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 64627843138281104, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1447,6 +1447,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5031533075653527251, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5164509187430238579, guid: a28fe43fbd9cdb842abd7a4d1b074d6e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.078
@@ -1469,7 +1473,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1235212031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,7 +2357,7 @@ MonoBehaviour:
   isGround:
     serializedVersion: 2
     m_Bits: 64
-  wallRunForce: 200
+  wallRunForce: 13
   maxWallRunTime: 1.5
   wallCheckDistance: 0.7
   minJumpHeight: 2
