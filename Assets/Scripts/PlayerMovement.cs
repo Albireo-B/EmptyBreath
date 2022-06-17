@@ -62,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         //Check on ground & reset gravity velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded)
-            Debug.Log("cassé");
         if (isGrounded && velocity.y <0f) 
         {
             lastWallSide = LastWallRun.none;
