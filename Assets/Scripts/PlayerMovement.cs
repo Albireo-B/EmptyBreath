@@ -25,14 +25,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
 
     public bool IsWallRunning = false;
+    public bool IsWallClimbing = false;
+    public bool IsClimbing = false;
+    public bool IsHanging = false;
 
-    //Climb
-    [SerializeField]
-    private bool canClimbing = false;
-    [SerializeField]
-    private bool isClimbing = false;
-    [SerializeField]
-    private float cdnClimb = 0.0f;
     private Transform obstacle;
 
     [SerializeField]
@@ -65,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //Check on ground & reset gravity velocity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        if (isGrounded)
+            Debug.Log("cassé");
         if (isGrounded && velocity.y <0f) 
         {
             lastWallSide = LastWallRun.none;
@@ -103,15 +101,15 @@ public class PlayerMovement : MonoBehaviour
         if(IsWallRunning){
 
         }
-        else if(isClimbing)
+        else if(IsWallClimbing || IsHanging)
         {
-            if(Input.GetMouseButtonDown(1))
+
+        }
+        else if(IsClimbing)
+        {
+            if (IsGround())
             {
-                Vector3 pos = new Vector3(obstacle.transform.position.x - transform.position.x, obstacle.transform.position.y  ,obstacle.transform.position.z- transform.position.z);
-                controller.Move(pos);
-                this.isClimbing = false;
-                this.isGravity = true;
-                velocity.y = -2f;
+                IsClimbing = false;
             }
         }
             
@@ -125,25 +123,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }   
 
-        //Climb 
-        if(Input.GetMouseButtonDown(0) && canClimbing)
-        {
-            isGravity = false;
-            isClimbing =true;
-            ResetYVelocity();
-            Debug.Log(obstacle.transform.position);
-            
-        }
-
-        if(cdnClimb > 0f)
-        {
-            cdnClimb -= Time.deltaTime;
-        }
-        if(cdnClimb <0f)
-        {
-            canClimbing = false;
-
-        }
+        
 
         
     }
@@ -165,17 +145,6 @@ public class PlayerMovement : MonoBehaviour
     //     Debug.Log(collision.collider.gameObject.name);
     //     Debug.Log("in");
     // }
-    private void OnTriggerStay(Collider collision) {
-        obstacle = collision.GetComponent<Collider>().gameObject.transform;
-        CanClimb(true);
-
-    }
-
-    private void CanClimb(bool can)
-    {
-        this.canClimbing = true;
-        cdnClimb = 0.5f;
-    }
 
     public bool IsGround()
     {

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1931887109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1931887110}
+  m_Layer: 0
+  m_Name: Orientation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1931887110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931887109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2986344965941949263}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027055676972335933
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,10 @@ GameObject:
   - component: {fileID: 7628822972449584194}
   - component: {fileID: 2531354800085090220}
   - component: {fileID: 3939330369134390047}
+  - component: {fileID: 1686216842}
+  - component: {fileID: 1686216836}
+  - component: {fileID: 1686216837}
+  - component: {fileID: 1686216841}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCamera
@@ -35,6 +69,7 @@ Transform:
   - {fileID: 9038465595773156563}
   - {fileID: 5979079678839061882}
   - {fileID: 2919049261464791096}
+  - {fileID: 1931887110}
   - {fileID: 4396589700219031028}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -102,20 +137,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2531354800085090220}
   groundCheck: {fileID: 5979079678839061882}
-  groundDistance: 0.4
+  groundDistance: 0.1
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   isGravity: 1
-  canClimbing: 0
-  isClimbing: 0
-  cdnClimb: 0
+  IsWallRunning: 0
+  IsWallClimbing: 0
+  IsClimbing: 0
+  IsHanging: 0
   currentSpeed: 0
-  runningSpeedMultiplier: 0
-  gravity: -9.81
+  runningSpeedMultiplier: 3
+  gravity: -19.81
   velocity: {x: 0, y: 0, z: 0}
   jumpHeight: 3
   hitboxClimb: {fileID: 0}
+  lastWallSide: 0
+  currentWallSide: 0
 --- !u!143 &2531354800085090220
 CharacterController:
   m_ObjectHideFlags: 0
@@ -146,9 +184,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd73aa9d71509a940b2eedad3327ad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerImmobile: 1
   volumeStrengthModifier: 0.1
   volumeSpeedModifier: 1
+--- !u!136 &1686216842
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027055676972335933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5095721
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: -0.009572089}
+--- !u!114 &1686216836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027055676972335933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a51056e0c1ce0343a066e5ef5007244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWall:
+    serializedVersion: 2
+    m_Bits: 128
+  isGround:
+    serializedVersion: 2
+    m_Bits: 64
+  wallRunForce: 13
+  maxWallRunTime: 1.5
+  JumpDist: 8
+  wallCheckDistance: 0.7
+  minJumpHeight: 2
+  orientation: {fileID: 1931887110}
+--- !u!114 &1686216837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027055676972335933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e71198c1cea8864a82b4f1ff75efed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWall:
+    serializedVersion: 2
+    m_Bits: 128
+  isGround:
+    serializedVersion: 2
+    m_Bits: 64
+  wallClimbForce: 3
+  maxWallClimbTime: 1.5
+  hangHight: 0.5
+  climbHight: 2
+  itWillClimbSameWall: 1
+  wallCheckDistance: 0.7
+  minJumpHeight: 2
+  player: {fileID: 1027055676972335933}
+  orientation: {fileID: 1931887110}
+--- !u!114 &1686216841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027055676972335933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c5e0b25e12c2e1429b34d5709675954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSlideTime: 1
+  slideForce: 3
+  slideYScale: 0.5
+  maxSlopeAngle: 45
 --- !u!1 &1463833712984818267
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2986344965941949263}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &6402484239048098148
 AudioSource:
@@ -286,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2919049261464791096}
   - component: {fileID: 8398593405397555990}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HitBoxCheckClimb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +450,9 @@ GameObject:
   - component: {fileID: 6684863110366110724}
   - component: {fileID: 4373694793282243612}
   - component: {fileID: 7962964902961339380}
-  m_Layer: 0
+  - component: {fileID: 871094808}
+  - component: {fileID: 871094809}
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,6 +538,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitiviy: 100
   playerBody: {fileID: 2986344965941949263}
+--- !u!114 &871094808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851393357192688668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: ee234343a701eb5459f456065d5bb567, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &871094809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851393357192688668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 9038465595773156563}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &8069624886248432397
 GameObject:
   m_ObjectHideFlags: 0

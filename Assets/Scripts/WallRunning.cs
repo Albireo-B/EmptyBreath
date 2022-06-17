@@ -10,6 +10,7 @@ public class WallRunning : MonoBehaviour
     public float wallRunForce;
     public float maxWallRunTime;
     private float WallRunTimer;
+    public float JumpDist;
 
     [Header("Input")]
     private float horizontalInput;
@@ -127,8 +128,8 @@ public class WallRunning : MonoBehaviour
             wallForward = -wallForward;
 
         Vector3 wallJumpDir = wallNormal + wallForward;
-        pm.SetXVelocity(wallJumpDir.x * 10);
-        pm.SetZVelocity(wallJumpDir.z * 10);
+        pm.SetXVelocity(wallJumpDir.x * JumpDist);
+        pm.SetZVelocity(wallJumpDir.z * JumpDist);
         pm.SetYVelocity(Mathf.Sqrt(pm.jumpHeight * -2 * pm.gravity));
     }
 }
