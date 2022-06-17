@@ -26,8 +26,7 @@ public class KillPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //TODO update after Lucas's movement changes
-        if (Vector3.Distance(player.transform.position, positionLastSecond) < 1f) 
+        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.3f) 
         {
             if (timeLeftBeforePursuit > 0.0f){
                 timeLeftBeforePursuit -= Time.deltaTime;
