@@ -10,6 +10,7 @@ public class Climb : MonoBehaviour
     public float wallClimbForce;
     private float wallClimbForceSave;
     public float maxWallClimbTime;
+    private float chrono = 0f;
     private float WallClimbTimer;
     private Vector3 hangPosition;
 
@@ -52,12 +53,23 @@ public class Climb : MonoBehaviour
     {
         CheckForWall();
         StateMachine();
+        if (chrono < maxWallClimbTime && pm.IsWallClimbing)
+            chrono += Time.deltaTime;
+        else if( chrono >= maxWallClimbTime && pm.IsWallClimbing){
+            Debug.Log("in");
+            StopWallClimb();
+            chrono = 0f;
+            itWillClimbSameWall = 0;
+        }
+        else
+            chrono = 0f;
+        // Debug.Log(chrono);
         if (pm.IsGround())
             itWillClimbSameWall = 1;
     }
 
     private void FixedUpdate() {
-        if(pm.IsWallClimbing && pm.lastWallSide != pm.currentWallSide){
+        if(pm.IsWallClimbing && itWillClimbSameWall != 0){
             WallClimbingMovement();
         }
 
