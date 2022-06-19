@@ -2909,6 +2909,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7628822972449584194, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
+      propertyPath: runningSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
 --- !u!1001 &633877793
@@ -9216,7 +9220,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 98248232, guid: e16598d720f4afc4e9f32611d5081bae, type: 3}
       propertyPath: m_Intensity
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 98248232, guid: e16598d720f4afc4e9f32611d5081bae, type: 3}
       propertyPath: m_SpotAngle
@@ -9336,7 +9340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1317140165, guid: e16598d720f4afc4e9f32611d5081bae, type: 3}
       propertyPath: m_Intensity
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1317140165, guid: e16598d720f4afc4e9f32611d5081bae, type: 3}
       propertyPath: m_SpotAngle
