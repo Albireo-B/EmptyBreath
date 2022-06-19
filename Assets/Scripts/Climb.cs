@@ -161,7 +161,7 @@ public class Climb : MonoBehaviour
         obstacle = collision.GetComponent<Collider>().gameObject.transform;
         if(itWillClimbSameWall > 0){
             IsHang(true);
-            itWillClimbSameWall = 0;    
+            itWillClimbSameWall = 1;    
         }
         else
         {
