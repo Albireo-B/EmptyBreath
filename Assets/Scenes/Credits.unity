@@ -123,6 +123,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3703198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3703199}
+  - component: {fileID: 3703200}
+  m_Layer: 0
+  m_Name: loadMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3703199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.112944886, y: -3.6924732, z: 178.67247}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1330735695}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3703200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3703198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeff1dda2a966ef418bfaabf2a5a5f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &720380820
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,6 +270,8 @@ GameObject:
   - component: {fileID: 1330735694}
   - component: {fileID: 1330735693}
   - component: {fileID: 1330735692}
+  - component: {fileID: 1330735696}
+  - component: {fileID: 1330735697}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -307,6 +352,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1459524296}
+  - {fileID: 3703199}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,6 +361,42 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 662.4, y: 567.083}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1330735696
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330735691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b06bcf418bc8402439ce16b58cf397c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &1330735697
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330735691}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 0}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings: []
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &1459524295
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,8 +498,6 @@ GameObject:
   - component: {fileID: 1772688933}
   - component: {fileID: 1772688935}
   - component: {fileID: 1772688934}
-  - component: {fileID: 1772688937}
-  - component: {fileID: 1772688936}
   m_Layer: 0
   m_Name: Credits_Text
   m_TagString: Untagged
@@ -441,7 +521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0.000030517578, y: -243.31}
+  m_AnchoredPosition: {x: 0.000030517578, y: -237}
   m_SizeDelta: {x: 9.67, y: 127.75}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1772688934
@@ -477,10 +557,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "<SIZE=20><B>EMPTY BREATH</B>\r</SIZE>\r\n\n\r\n<SIZE=16><B>ASSETS USED</B>\r</SIZE>\r\n\r\n<SIZE=12>-
-    GRAPHICS-</SIZE>\r\n\r\n<SIZE=6>POLYGON APOCALYPSE\n<I>BY  SYNTY STUDIOS</I></SIZE>\r\n\r\r\r\n<SIZE=12>-
-    AUDIO -</SIZE>\r\n\r\n<SIZE=6>HERO  IMMORTAL\r\n<I>BY  TREVOR  LENTZ</I></SIZE>\r\n\r\n\r\n<SIZE=12>-
-    SPECIAL  THANKS -</SIZE>\r\n\r\n<SIZE=6><I>PIERRE TOUSIGNANT\nDIM</I></SIZE>"
+  m_Text: "<SIZE=20><B>EMPTY BREATH</B>\r</SIZE>\r\n\n\r\n<SIZE=12><B>- EQUIPE -</B>\r</SIZE>\r\r\n\n<SIZE=6>Martins
+    Nicolas\nMiras Lucas\nRougier Nathan\nVinet Guillaume\n</SIZE>\r\n\n<SIZE=12><B>-
+    ASSETS UTILISE -</B>\r</SIZE>\r\n\r\n<SIZE=6>POLYGON APOCALYPSE\n<I>PAR  SYNTY
+    STUDIOS</I></SIZE>\r\n\r\n\n<SIZE=12>- REMERCIEMENT -</SIZE>\r\n\r\n<SIZE=6><I>PIERRE
+    TOUSIGNANT\nDIM</I></SIZE>"
 --- !u!222 &1772688935
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -489,41 +570,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772688932}
   m_CullTransparentMesh: 1
---- !u!95 &1772688936
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772688932}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 971414bafc6f63e48b96ff461de69672, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!320 &1772688937
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1772688932}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: f8f65a79823ab5247967fa3c898f8c1e, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: -7417393830269026695, guid: f8f65a79823ab5247967fa3c898f8c1e, type: 2}
-    value: {fileID: 0}
-  m_ExposedReferences:
-    m_References: []
