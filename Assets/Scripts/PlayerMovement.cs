@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     const float WALKING_SPEED = 8f;
 
     [SerializeField]
+    private ScoreManager scoreManager;
+
+    [SerializeField]
     private CharacterController controller;
 
     [SerializeField]
@@ -126,30 +129,28 @@ public class PlayerMovement : MonoBehaviour
 
         
     }
-    public void OnTriggerEnter(Collider other)
-    {
-        IInteractableObject io = other.gameObject.GetComponent<IInteractableObject>();
-        if (io == null)
-            return;
-        io.OnPlayerInteraction();
-
-    }
  
 
     public bool GetPlayerRunning() {return isRunning;}
 
     public CharacterController GetCharacterController() {return controller;}
 
-    // void OnCollisionEnter(Collision collision) {
-    //     Debug.Log(collision.collider.gameObject.name);
-    //     Debug.Log("in");
-    // }
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Collectible"){
+            scoreManager.AddCollectible(other.gameObject.name);
+            Destroy(other.gameObject);
+        }
+    }
 
     public bool IsGround()
     {
         return isGrounded;
     }
 
+
+    public void DisplayCollectibles(bool display){
+        scoreManager.ShowCollectibles(display);
+    }
 
     public void ResetYVelocity()
     {

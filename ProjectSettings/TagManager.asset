@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - SafeZone
   - HitBoxCheckClimb
+  - Collectible
   layers:
   - Default
   - TransparentFX

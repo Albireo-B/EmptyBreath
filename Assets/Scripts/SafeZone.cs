@@ -8,6 +8,7 @@ public class SafeZone : MonoBehaviour
         if (other.gameObject.tag == "Player"){
             GameObject player = other.gameObject;
             player.GetComponent<PlayerAudioManager>().SafeZone(true);
+            player.GetComponent<PlayerMovement>().DisplayCollectibles(true);
         }
     }
 
@@ -15,6 +16,7 @@ public class SafeZone : MonoBehaviour
         if (other.gameObject.tag == "Player"){
             GameObject player = other.gameObject;
             player.GetComponent<PlayerAudioManager>().SafeZone(false);
+            player.GetComponent<PlayerMovement>().DisplayCollectibles(false);
         }
     }
 }
