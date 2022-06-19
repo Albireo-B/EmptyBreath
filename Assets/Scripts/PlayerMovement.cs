@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     
-    const float WALKING_SPEED = 8f;
+    const float WALKING_SPEED = 6f;
 
     [SerializeField]
     private ScoreManager scoreManager;
