@@ -156,7 +156,8 @@ public class Climb : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision) {
         obstacle = collision.GetComponent<Collider>().gameObject.transform;
-        if (obstacle.gameObject.tag != "SafeZone"){
+        if (obstacle.gameObject.tag != "SafeZone" && obstacle.gameObject.tag != "tuto")
+        {
             if(itWillClimbSameWall > 0){
                 IsHang(true);
                 itWillClimbSameWall = 1;    

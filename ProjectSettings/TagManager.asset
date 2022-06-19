@@ -7,6 +7,7 @@ TagManager:
   - Obstacle
   - SafeZone
   - HitBoxCheckClimb
+  - tuto
   layers:
   - Default
   - TransparentFX
