@@ -26,9 +26,8 @@ public class KillPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         //Debug.Log(Vector3.Distance(player.transform.position, positionLastSecond));
-        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.15f) 
+        if (Vector3.Distance(player.transform.position, positionLastSecond) < 0.22f) 
         {
             if (timeLeftBeforePursuit > 0.0f){
                 timeLeftBeforePursuit -= Time.deltaTime;

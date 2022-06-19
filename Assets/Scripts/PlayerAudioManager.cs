@@ -21,10 +21,12 @@ public class PlayerAudioManager : MonoBehaviour
     private bool audioReset;
     private bool audioIncreasing;
     private bool audioDecreasing;
+    private bool inSafeZone;
 
     // Start is called before the first frame update
     void Start()
     {
+        inSafeZone = false;
         audioReset = false;
         audioIncreasing = false;
         audioDecreasing = false;
@@ -36,24 +38,26 @@ public class PlayerAudioManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!audioSource.isPlaying && (audioDecreasing || audioIncreasing))
-            audioSource.Play();
-        else if (playerImmobile && !audioIncreasing && !audioDecreasing){
-            if (volumeCoroutine!=null)
+        if (!inSafeZone){
+            if (!audioSource.isPlaying && (audioDecreasing || audioIncreasing))
+                audioSource.Play();
+            else if (playerImmobile && !audioIncreasing && !audioDecreasing){
+                if (volumeCoroutine!=null)
+                    StopCoroutine(volumeCoroutine);
+                PlayAliensIncoming();
+            } else if (!playerImmobile && audioIncreasing){
+                audioReset = false;
+                audioIncreasing = false;
+                audioDecreasing = true;
                 StopCoroutine(volumeCoroutine);
-            PlayAliensIncoming();
-        } else if (!playerImmobile && audioIncreasing){
-            audioReset = false;
-            audioIncreasing = false;
-            audioDecreasing = true;
-            StopCoroutine(volumeCoroutine);
-            volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Decrease));
-        } else if (playerImmobile && audioDecreasing){
-            audioIncreasing = true;
-            audioDecreasing = false;
-            audioReset = true;
-            StopCoroutine(volumeCoroutine);
-            volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Increase));
+                volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Decrease));
+            } else if (playerImmobile && audioDecreasing){
+                audioIncreasing = true;
+                audioDecreasing = false;
+                audioReset = true;
+                StopCoroutine(volumeCoroutine);
+                volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Increase));
+            }
         }
     }
 
@@ -86,6 +90,16 @@ public class PlayerAudioManager : MonoBehaviour
             StopAudio();
         }
         yield return null;
+    }
+
+    public void SafeZone(bool entering){
+        inSafeZone = entering;
+        if (audioIncreasing){
+                audioIncreasing = false;
+                audioDecreasing = true;
+                StopCoroutine(volumeCoroutine);
+                volumeCoroutine = StartCoroutine(VolumeHandler(VolumeMode.Decrease));
+        }
     }
 
     void StopAudio(){

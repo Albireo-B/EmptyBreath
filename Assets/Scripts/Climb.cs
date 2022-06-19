@@ -56,7 +56,6 @@ public class Climb : MonoBehaviour
         if (chrono < maxWallClimbTime && pm.IsWallClimbing)
             chrono += Time.deltaTime;
         else if( chrono >= maxWallClimbTime && pm.IsWallClimbing){
-            Debug.Log("in");
             StopWallClimb();
             chrono = 0f;
             itWillClimbSameWall = 0;
@@ -76,8 +75,8 @@ public class Climb : MonoBehaviour
     }
 
     private void CheckForWall(){
-        frontWall = Physics.Raycast(transform.position,orientation.forward, out frontWallhit, wallCheckDistance);
 
+        frontWall = Physics.Raycast(transform.position,orientation.forward, out frontWallhit, wallCheckDistance, ~LayerMask.GetMask("SafeZone"));
     }
 
     private void StateMachine(){
@@ -88,7 +87,6 @@ public class Climb : MonoBehaviour
         // State 1 - WallClimbing
         if (hang)
         {
-            
             if (Input.GetMouseButtonDown(0))
                 StartClimb();
             else if(player.transform.position.y > hangPosition.y)
@@ -119,7 +117,6 @@ public class Climb : MonoBehaviour
         }
         if ((frontWall) && verticalInput > 0 && !pm.IsClimbing ) //&& !pm.IsGround()
         {
-
             if(!pm.IsWallClimbing)
                 StartWallClimb();
         }
@@ -159,16 +156,16 @@ public class Climb : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision) {
         obstacle = collision.GetComponent<Collider>().gameObject.transform;
-        if(itWillClimbSameWall > 0){
-            IsHang(true);
-            itWillClimbSameWall = 1;    
+        if (obstacle.gameObject.tag != "SafeZone"){
+            if(itWillClimbSameWall > 0){
+                IsHang(true);
+                itWillClimbSameWall = 1;    
+            }
+            else
+            {
+
+            }
         }
-        else
-        {
-
-        }
-
-
     }
 
     private void IsHang(bool can)
