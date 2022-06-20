@@ -102,7 +102,7 @@ public class PlayerAudioManager : MonoBehaviour
         }
     }
 
-    void StopAudio(){
+    public void StopAudio(){
         audioDecreasing = false;
         audioIncreasing = false;
         audioSource.Stop();
