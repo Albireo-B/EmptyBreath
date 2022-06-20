@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33073806832609006}
   - component: {fileID: 23425278521069838}
   - component: {fileID: 64399929843098346}
+  - component: {fileID: 5124129555607497592}
   m_Layer: 0
   m_Name: Collectible2
   m_TagString: Collectible
@@ -96,3 +97,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43811457885057306, guid: 683c5671043ada54f98a0ce802ffd772, type: 2}
+--- !u!114 &5124129555607497592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023369000891532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.42356968, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
