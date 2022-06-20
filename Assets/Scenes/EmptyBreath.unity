@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.01635343, g: 0.00678086, b: 0.0046362937, a: 1}
+  m_IndirectSpecularColor: {r: 0.016366655, g: 0.0067901644, b: 0.00461858, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7829,7 +7829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &290378070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10525,7 +10525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 139570680153480151, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_Name
-      value: SafeZone
+      value: SafeZone Victo
       objectReference: {fileID: 0}
     - target: {fileID: 3478841414540152455, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_RootOrder
@@ -10575,6 +10575,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
 --- !u!4 &382394905 stripped
@@ -16089,6 +16093,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
 --- !u!1001 &572054868
@@ -27422,7 +27430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 139570680153480151, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_Name
-      value: SafeZone
+      value: SafeZone Victo
       objectReference: {fileID: 0}
     - target: {fileID: 3478841414540152455, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_RootOrder
@@ -27480,6 +27488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
 --- !u!4 &978351126 stripped
@@ -28149,6 +28161,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     - target: {fileID: 6732020389741993133, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -36470,6 +36486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585b93657504be34abf9f9ec6bebfbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ws: {fileID: 0}
 --- !u!1 &1314640205
 GameObject:
   m_ObjectHideFlags: 0
@@ -43313,7 +43330,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!224 &1536488055
 RectTransform:
@@ -47806,6 +47823,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     - target: {fileID: 6732020389741993133, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -50859,6 +50880,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3939330369134390047, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
+      propertyPath: go
+      value: 
+      objectReference: {fileID: 682115622}
     - target: {fileID: 6684863110366110724, guid: 862b2f57abfb53748bcc71b3f8032dcc, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -51991,7 +52016,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 139570680153480151, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_Name
-      value: SafeZone (1)
+      value: SafeZone Victo
       objectReference: {fileID: 0}
     - target: {fileID: 3478841414540152455, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_RootOrder
@@ -52041,6 +52066,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
 --- !u!1001 &1878493257
@@ -58544,6 +58573,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6522030919534937257, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
+      propertyPath: ws
+      value: 
+      objectReference: {fileID: 290378071}
     - target: {fileID: 6732020389741993133, guid: 7720c55b0a4a4c649839b437654e06e1, type: 3}
       propertyPath: m_IsActive
       value: 0
