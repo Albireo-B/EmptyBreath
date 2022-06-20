@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerAudioManager : MonoBehaviour
 {
 
+    public GameOverScreen go;
+
 
     enum VolumeMode{Increase,Decrease};
 
@@ -111,7 +113,7 @@ public class PlayerAudioManager : MonoBehaviour
 
     void PlayerDeath(){
         Debug.Log("The THINGS got you...");
-        SceneManager.LoadScene("DemoScene");
+        go.Setup();
     }
 
     public void SetImmobile(bool immobile){
