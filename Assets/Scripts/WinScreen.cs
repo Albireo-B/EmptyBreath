@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 public class WinScreen : MonoBehaviour
 {
-    public Text txt;
     public void Setup(int score)
     {
         gameObject.SetActive(true);
-        txt.text = score.ToString() + "conserves récupérés";
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

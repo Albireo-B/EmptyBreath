@@ -8,6 +8,8 @@ public class GameOverScreen : MonoBehaviour
     public void Setup()
     {
         gameObject.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
   
