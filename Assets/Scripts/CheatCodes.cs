@@ -18,12 +18,12 @@ public class CheatCodes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Keypad1)){
+        if (Input.GetKeyDown(KeyCode.B)){
             soundDisabled  = !soundDisabled;
             GetComponent<KillPlayer>().enabled = !soundDisabled;
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioManager>().StopAudio();
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerAudioManager>().SetImmobile(false);
-        } else if (Input.GetKeyDown(KeyCode.Keypad2)){
+        } else if (Input.GetKeyDown(KeyCode.N)){
             lightsDisabled = !lightsDisabled;
             RenderSettings.fog =  !lightsDisabled;
             RenderSettings.ambientIntensity = lightsDisabled ? 8 : 1;
