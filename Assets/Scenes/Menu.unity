@@ -330,7 +330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.0037037039}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -51.11502, y: -2}
+  m_AnchoredPosition: {x: -51.11505, y: -2}
   m_SizeDelta: {x: 183.16989, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250489478
@@ -652,7 +652,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1566502173}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: Jouer
+        m_MethodName: Tuto
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

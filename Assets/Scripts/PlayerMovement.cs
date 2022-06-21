@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public bool IsWallClimbing = false;
     public bool IsClimbing = false;
     public bool IsHanging = false;
+    public bool IsImmobile = false;
 
     private Transform obstacle;
 
@@ -104,6 +105,10 @@ public class PlayerMovement : MonoBehaviour
 
         }
         else if(IsWallClimbing || IsHanging)
+        {
+
+        }
+        else if(IsImmobile)
         {
 
         }
