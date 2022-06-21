@@ -376,6 +376,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 997949964}
+    - target: {fileID: 1889640945744615047, guid: fd3c371400261db4798f0142310df070, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5592018487295836958, guid: 7da405efef38dd44597319778bcf08b0, type: 3}
+    - target: {fileID: 1889640945744615047, guid: fd3c371400261db4798f0142310df070, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tuto
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889640945757055534, guid: fd3c371400261db4798f0142310df070, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5592018487295836958, guid: 7da405efef38dd44597319778bcf08b0, type: 3}
+    - target: {fileID: 1889640945757055534, guid: fd3c371400261db4798f0142310df070, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 1889640946050291490, guid: fd3c371400261db4798f0142310df070, type: 3}
       propertyPath: player
       value: 
