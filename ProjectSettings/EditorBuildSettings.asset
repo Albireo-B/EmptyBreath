@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 39433360524e7024cbd2d338b1efad10
+  - enabled: 1
+    path: Assets/Scenes/EmptyBreath.unity
+    guid: 85743e8053f16ec488f2c06dbff805ba
   m_configObjects: {}
