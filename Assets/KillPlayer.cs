@@ -26,6 +26,7 @@ public class KillPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.deltaTime);
         if (timeLeftBeforePursuit > 0.0f)
                 timeLeftBeforePursuit -= Time.deltaTime;
         else{
@@ -35,6 +36,7 @@ public class KillPlayer : MonoBehaviour
                 
                     player.GetComponent<PlayerAudioManager>().SetImmobile(true);
                     timeLeftBeforePursuit = timeBeforePursuitSounds;
+                    Debug.Log(Time.deltaTime);
             }
                 
             else {

@@ -12,9 +12,9 @@ public class PlayerAudioManager : MonoBehaviour
 
     enum VolumeMode{Increase,Decrease};
 
-    [SerializeField] private float volumeStrengthModifier = 0.1f; // from 0 to 1
+    [SerializeField] private float volumeStrengthModifier = 0.01f; // from 0 to 1
     
-    [SerializeField] private float volumeSpeedModifier = 1f; // time between volume changes
+    [SerializeField] private float volumeSpeedModifier = 0.1f; // time between volume changes
 
 
     private Coroutine volumeCoroutine;
